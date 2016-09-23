@@ -1,0 +1,52 @@
+<html ng-app="accountDetail">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Account Detail</title>
+	</head>
+	
+	<body ng-controller="AccountController as AC">
+		
+		<fieldset>
+		
+			<label for="id">Account ID</label>
+			<input id="id" ng-model="AC.account.id" type="text">
+			
+			<label for="customer">Customer</label>
+			<input id="customer" ng-model= "AC.account.customer" type="text">
+			
+			<input name="type" type="radio" ng-model = "AC.account.type" value="CH">Checking
+			<input name="type" type="radio" ng-model = "AC.account.type" value="SA">Savings
+			
+			<label for="balance">Balance</label>
+			<input id="balance" ng-model="AC.account.balance" type="text">
+			
+		</fieldset>
+		
+		<div>
+		
+			Account ID: {{AC.account.id}}<br>
+			Customer ID: {{AC.account.customer}}<br>
+			Type: {{AC.account.type}}<br>
+			Balance: {{AC.account.balance}}<br>
+		
+		</div>
+		<script src="../js/angular.min.js"></script>
+		
+		<script type="text/javascript">
+		
+			angular.module("accountDetail", []).controller("AccountController", function()
+			{
+				
+				
+				this.account = {
+						id : 85,
+						customer : "potato@gmail.com",
+						type : 'SA',
+						balance : 89.98
+				}
+			});
+		
+		</script>
+		
+	</body>
+</html>

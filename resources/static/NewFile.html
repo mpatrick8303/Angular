@@ -1,0 +1,21 @@
+<html ng-app>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+	</head>
+	<body>
+
+		<fieldset>
+			<label for="user-name">User Name</label>
+			<input id="user-name" ng-model="userName" type="text" value="potato@">
+			<label for="user-name">Password</label>
+			<input id="password" ng-model = "password" type="password">
+		</fieldset>
+		<div>
+			{{userName}}<br>
+			Your password {{password}} is not secure!!
+		</div>
+		
+		<script src="../js/angular.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<html ng-app="customerDetail">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Customer Detail</title>
+	</head>
+	
+	<body ng-controller="CustomerController as CC">
+		
+		
+		<ul>
+			<li data-id = "{{ customer.id }}" ng-repeat="customer in CC.customers"><a id="name" href="#" ng-click="CC.remove($index)">{{ customer.name }}</a></li>
+		</ul>
+		
+		<form ng-submit="CC.add()">
+        	<label for="customer-name">New Customer</label> 
+        	<input id="customer-name" type="text" ng-model="CC.newName">
+        	<input type="submit" value="Add New Customer">
+    	</form>
+    	
+    	<div>
+    	Number of Customer's in the List {{ CC.customers.length }}
+    	</div>
+    	
+    	<div>
+    	First Customer: {{ CC.customers[0].name }}
+    	</div>
+    	
+    	<div>
+    	Last Customer: {{ CC.customers[CC.customers.length-1].name }}
+    	</div>
+		
+		<script src="../js/angular.min.js"></script>
+		
+		<script type="text/javascript">
+		
+			angular.module("customerDetail", []).controller("CustomerController", function($scope)
+			{
+
+				this.customers = [
+				                  
+					{id: 87, name: "Michael Patrick"},   
+					{id: 100, name: "John Doe"},
+            
+				];
+	
+				var self = this;
+				
+				this.newName = "";
+                this.add = function(){
+                    this.customers.push({id : 789, name : this.newName})
+                    this.newName = "";
+                }
+                
+                this.remove = function(index){
+                	
+                	if(confirm('Are you sure you want to delete this Customer?'))
+                		this.customers.splice(index,1);
+                }
+
+			});
+		
+		</script>
+		
+	</body>
+</html>

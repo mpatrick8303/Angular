@@ -1,0 +1,25 @@
+<html ng-app="intro">
+	<body ng-controller="LooseController as LC">
+
+		<fieldset>
+			<label for="user-name">User Name</label>
+			<input id="user-name" ng-model="LC.userName" type="text" >
+			<label for="user-name">Password</label>
+			<input id="password" type="password">
+		</fieldset>
+		<div>
+			{{ LC.userName }}<br>
+			Your password {{ LC.password }} is not secure!!
+		</div>
+		
+		<script src="../js/angular.min.js"></script>
+		<script type="text/javascript">
+			angular.module('intro', []).controller("LooseController", function()
+			{
+				this.userName = "james.mcin";
+				this.password = "script";
+			});
+		</script>
+	</body>
+</html>
+
